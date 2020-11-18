@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content xmlns:j="http://www.jahia.org/jahia/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0">
+   <modules jcr:primaryType="jnt:modules">
+      <tmdb-provider j:dependencies="bootstrap4-components bootstrap4-core default external-provider"
+                     j:modulePriority="0"
+                     j:moduleType="module"
+                     j:title="tmdb-provider"
+                     jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                     jcr:primaryType="jnt:module">
+         <sources jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                  jcr:primaryType="jnt:moduleVersionFolder"
+                  j:staticMountPointProviderKey="module-tmdb-provider-2.0-SNAPSHOT">
+            <src jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                 jcr:primaryType="jnt:folder">
+               <main jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                     jcr:primaryType="jnt:folder">
+                  <resources jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                             jcr:primaryType="jnt:folder">
+                     <META-INF jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                               jcr:primaryType="jnt:metaInfFolder">
+                        <definitions.cnd jcr:primaryType="jnt:definitionFile"/>
+                        <spring jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                                jcr:primaryType="jnt:folder">
+                           <tmdb-provider.xml jcr:primaryType="jnt:xmlFile"/>
+                        </spring>
+                     </META-INF>
+                     <jnt_movie jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                                jcr:primaryType="jnt:nodeTypeFolder">
+                        <html jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                              jcr:primaryType="jnt:templateTypeFolder">
+                           <movie.movieDetails.jsp jcr:primaryType="jnt:viewFile"/>
+                        </html>
+                     </jnt_movie>
+                  </resources>
+                  <java jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                        jcr:primaryType="jnt:javaPackageFolder">
+                     <org jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                          jcr:primaryType="jnt:javaPackageFolder">
+                        <jahia jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                               jcr:primaryType="jnt:folder">
+                           <modules jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                                    jcr:primaryType="jnt:javaPackageFolder">
+                              <tmdbprovider jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                                            jcr:primaryType="jnt:javaPackageFolder">
+                                 <TMDBDataSource.java jcr:primaryType="jnt:javaSourceFile"/>
+                              </tmdbprovider>
+                           </modules>
+                        </jahia>
+                     </org>
+                  </java>
+               </main>
+            </src>
+         </sources>
+         <portlets jcr:primaryType="jnt:portletFolder"/>
+         <files jcr:primaryType="jnt:folder"/>
+         <contents jcr:primaryType="jnt:contentFolder"/>
+         <templates j:rootTemplatePath="/base" jcr:primaryType="jnt:templatesFolder">
+            <files jcr:primaryType="jnt:folder"/>
+            <contents jcr:primaryType="jnt:contentFolder"/>
+            <movie-template j:applyOn="jnt:movie"
+                            j:defaultTemplate="true"
+                            j:hiddenTemplate="false"
+                            j:priority="2"
+                            jcr:primaryType="jnt:contentTemplate">
+               <j:translation_en jcr:language="en"
+                                 jcr:mixinTypes="mix:title"
+                                 jcr:primaryType="jnt:translation"
+                                 jcr:title="movie-template"/>
+               <pagecontent jcr:primaryType="jnt:contentList">
+                  <layout-and-grid grid="3_9"
+                                   gridLayout="fixed-width"
+                                   jcr:mixinTypes="bootstrap4mix:createContainer bootstrap4mix:createRow bootstrap4mix:createSection bootstrap4mix:predefinedGrid"
+                                   jcr:primaryType="bootstrap4nt:grid"
+                                   rowHorizontalAlignment="default"
+                                   rowVerticalAlignment="default"
+                                   sectionElement="section"
+                                   typeOfGrid="predefinedGrid">
+                     <layout-and-grid-side jcr:primaryType="jnt:contentList">
+                        <main-resource-display j:mainResourceView="moviefacts"
+                                               jcr:primaryType="jnt:mainResourceDisplay"/>
+                     </layout-and-grid-side>
+                     <layout-and-grid-main jcr:primaryType="jnt:contentList">
+                        <main-resource-display j:mainResourceView="maindetails"
+                                               jcr:primaryType="jnt:mainResourceDisplay"/>
+                        <commentable jcr:primaryType="jnt:addComment"/>
+                        <display-comments jcr:primaryType="jnt:commentsList"/>
+                     </layout-and-grid-main>
+                  </layout-and-grid>
+               </pagecontent>
+            </movie-template>
+            <movieslist-template j:applyOn="jnt:moviesList"
+                                 j:defaultTemplate="true"
+                                 j:hiddenTemplate="false"
+                                 j:priority="2"
+                                 jcr:primaryType="jnt:contentTemplate">
+               <j:translation_en jcr:language="en"
+                                 jcr:mixinTypes="mix:title"
+                                 jcr:primaryType="jnt:translation"
+                                 jcr:title="movieslist-template"/>
+               <pagecontent jcr:primaryType="jnt:contentList">
+                  <layout-and-grid gridLayout="fixed-width"
+                                   jcr:mixinTypes="bootstrap4mix:createContainer bootstrap4mix:createRow bootstrap4mix:createSection"
+                                   jcr:primaryType="bootstrap4nt:grid"
+                                   rowHorizontalAlignment="default"
+                                   rowVerticalAlignment="default"
+                                   sectionElement="section"
+                                   typeOfGrid="nogrid">
+                     <layout-and-grid jcr:primaryType="jnt:contentList">
+                        <main-resource-display j:mainResourceView="maindetails"
+                                               jcr:primaryType="jnt:mainResourceDisplay"/>
+                        <commentable jcr:primaryType="jnt:addComment"/>
+                        <display-comments jcr:primaryType="jnt:commentsList"/>
+                     </layout-and-grid>
+                  </layout-and-grid>
+               </pagecontent>
+            </movieslist-template>
+            <person-template j:applyOn="jnt:moviePerson"
+                             j:defaultTemplate="true"
+                             j:hiddenTemplate="false"
+                             j:priority="2"
+                             jcr:primaryType="jnt:contentTemplate">
+               <j:translation_en jcr:language="en"
+                                 jcr:mixinTypes="mix:title"
+                                 jcr:primaryType="jnt:translation"
+                                 jcr:title="person-template"/>
+               <pagecontent jcr:primaryType="jnt:contentList">
+                  <layout-and-grid grid="4_8"
+                                   gridLayout="fixed-width"
+                                   jcr:mixinTypes="bootstrap4mix:createContainer bootstrap4mix:createRow bootstrap4mix:createSection bootstrap4mix:predefinedGrid"
+                                   jcr:primaryType="bootstrap4nt:grid"
+                                   rowHorizontalAlignment="default"
+                                   rowVerticalAlignment="default"
+                                   sectionElement="section"
+                                   typeOfGrid="predefinedGrid">
+                     <layout-and-grid-side jcr:primaryType="jnt:contentList">
+                        <main-resource-display j:mainResourceView="picture"
+                                               jcr:primaryType="jnt:mainResourceDisplay"/>
+                     </layout-and-grid-side>
+                     <layout-and-grid-main jcr:primaryType="jnt:contentList">
+                        <main-resource-display j:mainResourceView="default"
+                                               jcr:primaryType="jnt:mainResourceDisplay"/>
+                     </layout-and-grid-main>
+                  </layout-and-grid>
+               </pagecontent>
+            </person-template>
+         </templates>
+      </tmdb-provider>
+   </modules>
+</content>
