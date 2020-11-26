@@ -67,6 +67,8 @@
                                  jcr:primaryType="jnt:translation"
                                  jcr:title="movie-template"/>
                <pagecontent jcr:primaryType="jnt:contentList">
+                 <heading j:bindedComponent="#/modules/tmdb-provider/templates/content-template/pagecontent/layout-and-grid/layout-and-grid-main/main-resource-display"
+                           jcr:primaryType="tmdbnt:heading"/>
                   <layout-and-grid grid="3_9"
                                    gridLayout="fixed-width"
                                    jcr:mixinTypes="bootstrap4mix:createContainer bootstrap4mix:createRow bootstrap4mix:createSection bootstrap4mix:predefinedGrid"
@@ -74,6 +76,7 @@
                                    rowHorizontalAlignment="default"
                                    rowVerticalAlignment="default"
                                    sectionElement="section"
+                                   sectionCssClass="section"
                                    typeOfGrid="predefinedGrid">
                      <layout-and-grid-side jcr:primaryType="jnt:contentList">
                         <main-resource-display j:mainResourceView="moviefacts"
@@ -124,6 +127,10 @@
                                  jcr:primaryType="jnt:translation"
                                  jcr:title="person-template"/>
                <pagecontent jcr:primaryType="jnt:contentList">
+                 <heading j:bindedComponent="#/modules/tmdb-provider/templates/content-template/pagecontent/layout-and-grid/layout-and-grid-main/main-resource-display"
+                          jcr:primaryType="tmdbnt:heading"
+                          jcr:mixinTypes="jmix:renderable"
+                          j:view="moviePerson"/>
                   <layout-and-grid grid="4_8"
                                    gridLayout="fixed-width"
                                    jcr:mixinTypes="bootstrap4mix:createContainer bootstrap4mix:createRow bootstrap4mix:createSection bootstrap4mix:predefinedGrid"
@@ -131,6 +138,7 @@
                                    rowHorizontalAlignment="default"
                                    rowVerticalAlignment="default"
                                    sectionElement="section"
+                                   sectionCssClass="section"
                                    typeOfGrid="predefinedGrid">
                      <layout-and-grid-side jcr:primaryType="jnt:contentList">
                         <main-resource-display j:mainResourceView="picture"

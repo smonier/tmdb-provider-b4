@@ -94,8 +94,8 @@ figure,
     background-size: cover; /* Resize the background image to cover the entire container */
 }
 
-/* img */
-img {
+/* img*/
+.posterImg {
     height: 100%;
     border-radius: 24px;
 
@@ -151,7 +151,10 @@ figcaption {
 
 .card-back .img-bg {
     clip-path: polygon(0 0, 100% 0, 100% 80%, 0 60%);
+}
 
+.card-back img {
+   height:100%;
 }
 
 /* hover state */
@@ -162,7 +165,7 @@ figcaption {
 }
 
 /* ul */
-ul {
+.card-front ul {
     padding-top: 50%;
     margin: 0 auto;
     width: 70%;
@@ -178,7 +181,7 @@ ul {
 }
 
 /* li */
-li {
+.card-front li {
     width: 100%;
     margin-top: 12px;
     padding-bottom: 12px;
@@ -189,11 +192,11 @@ li {
     position: relative;
 }
 
-li:nth-child(2n) {
+.card-front li:nth-child(2n) {
     color: var(--white-2);
 }
 
-li:not(:last-child)::after {
+.card-front li:not(:last-child)::after {
     content: "";
 
     position: absolute;
@@ -208,7 +211,7 @@ li:not(:last-child)::after {
 }
 
 /* button */
-button {
+.card-back button {
     font-family: inherit;
     font-weight: bold;
     color: var(--white-1);
@@ -218,25 +221,27 @@ button {
     padding: 9px 20px;
     border: 1px solid var(--grey);
     border-radius: 1000px;
-    background: transparent;
+    background: #000 ;
     transition: .3s;
 
     cursor: pointer;
 }
 
-button:hover,
-button:focus {
+.card-back button:hover,
+.card-back button:focus {
     color: var(--primary);
     background: hsla(var(--hue), 25%, 10%, .2);
     border-color: currentColor;
 }
-
-button:active {
+.card-back button a:hover {
+    color: white;
+}
+.card-back button:active {
     transform: translate(2px);
 }
 
 /* .design-container */
-.design-container {
+.card-back .design-container {
     --tr: 90;
     --op: .5;
 

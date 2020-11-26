@@ -1,5 +1,7 @@
 <jnt = 'http://www.jahia.org/jahia/nt/1.0'>
 <jmix = 'http://www.jahia.org/jahia/mix/1.0'>
+<tmdbnt = 'http://www.jahia.org/tmdb/nt/1.0'>
+<tmdbmix = 'http://www.jahia.org/tmdb/mix/1.0'>
 
 [jnt:movie] > jnt:content, jmix:structuredContent, mix:title, jmix:tagged, jmix:keywords, jmix:mainResource
  - overview (string) i18n
@@ -49,3 +51,5 @@
  - birthday (date)
  - deathday (date)
  - profile (string) nofulltext
+
+ [tmdbnt:heading] > jnt:content, jmix:bindedComponent, jmix:structuredContent

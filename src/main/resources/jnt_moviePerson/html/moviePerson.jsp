@@ -33,6 +33,7 @@ ${currentNode.properties['biography'].string}
 <jcr:jqom var="res" statement="SELECT * FROM [jnt:cast] where id='${currentNode.name}'"/>
 <div id="owl-demo" class="owl-carousel owl-theme">
     <c:forEach items="${res.nodes}" var="cast">
+        <c:if test="${!empty cast.properties['character'].string}">
         <div class="item pr-2">
             <a href="<c:url value="${url.base}${cast.parent.path}.html"/>">
                 <c:choose>
@@ -51,9 +52,11 @@ ${currentNode.properties['biography'].string}
             </c:choose>
             </a><br/>
             <div class="align-center">${cast.properties['character'].string}<br/>
-                <a href="<c:url value="${url.base}${cast.parent.path}.html"/>">${cast.parent.properties['jcr:title'].string}</a>
+                <a href="<c:url value="${url.base}${cast.parent.path}.html"/>">${cast.parent.properties['jcr:title'].string}</a><br/>
+                <small class="text-muted">(${cast.parent.properties['release_date'].date.time.year + 1900})</small>
             </div>
         </div>
+        </c:if>
     </c:forEach>
 
 </div>

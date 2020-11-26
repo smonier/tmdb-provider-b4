@@ -21,17 +21,29 @@
 
 <c:set var="linkUrl" value="${url.base}${currentNode.path}.html"/>
 
-
-
+<jcr:nodeProperty node="${currentNode}" var="xpCategories" name="j:defaultCategory"/>
+<jcr:nodeProperty node="${currentNode}" name="j:tagList" var="moviesTags"/>
+<c:set var="myCat" value=""/>
+<c:if test="${!empty xpCategories }">
+    <c:forEach items="${xpCategories}" var="category">
+        <c:set var="myCat" value="${myCat} ${category.node.name}"/>
+    </c:forEach>
+</c:if>
+<c:set var="myTags" value=""/>
+<c:if test="${!empty moviesTags }">
+    <c:forEach items="${moviesTags}" var="tag">
+        <c:set var="myTags" value="${myTags} ${tag.string}"/>
+    </c:forEach>
+</c:if>
 
     <!-- flip-card-container -->
-    <div class="flip-card-container" style="--hue: 220">
+    <div class="flip-card-container ${myCat} ${myTags}" style="--hue: 220">
         <div class="flip-card">
 
             <div class="card-front">
                 <figure>
                     <div class="img-bg"></div>
-                    <img src="${currentNode.properties['poster_path'].string}" alt="${currentNode.properties['original_title'].string}">
+                    <img class="posterImg" src="${currentNode.properties['poster_path'].string}" alt="${currentNode.properties['original_title'].string}">
                     <figcaption>${currentNode.properties['original_title'].string}<br/>${currentNode.properties['release_date'].date.time.year + 1900}</figcaption>
 
                 </figure>
@@ -40,11 +52,11 @@
                     <li>${currentNode.properties['tagline'].string}</li>
                     <jcr:nodeProperty node="${currentNode}" var="genres" name="j:tagList"/>
                     <c:if test="${!empty genres}">
-                        <li>
+
                             <c:forEach items="${genres}" var="genre">
-                                ${genre.string}
+                                <li> ${genre.string}</li>
                             </c:forEach>
-                        </li>
+
                     </c:if>
                 </ul>
             </div>
