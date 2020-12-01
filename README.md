@@ -1,9 +1,9 @@
 # tmdb-provider
 
 ## Prerequisites
-* Jahia 7.1.0.0 or superior
-* bootstrap 2 modules (bootstrap and bootstrap-component)
-* the prepackaged site Digitall must be deployed
+* Jahia 8.0.1.0 or superior
+* bootstrap 4 modules (bootstrap and bootstrap-component)
+* Use the site key tmdb to be deployed
 
 ## Setup
 To setup the tmdb-provider you must:
@@ -11,3 +11,6 @@ To setup the tmdb-provider you must:
 2. start or restart your jahia
 3. deploy the module tmdb-provider
 5. Now you can for example add a content reference and look for a node in the source, the source is under /digitall/contents/tmdb/...
+
+
+## Screenshots
