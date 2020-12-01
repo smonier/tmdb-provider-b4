@@ -12,5 +12,16 @@ To setup the tmdb-provider you must:
 3. deploy the module tmdb-provider
 5. Now you can for example add a content reference and look for a node in the source, the source is under /digitall/contents/tmdb/...
 
+## Augmented Search
+Fully functional with Augmented Search V3
 
 ## Screenshots
+### Example of bootstrap 4 cards
+![picture](./src/main/resources/img/readme/tmdb-cards.png)
+
+### Movie Content Template
+![picture](./src/main/resources/img/readme/tmdb-movie.png)
+
+### Movie Person Content Template
+![picture](./src/main/resources/img/readme/tmdb-movieperson.png)
+
